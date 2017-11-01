@@ -1,0 +1,11 @@
+.vscode
+build
+tags
+.editorconfig
+src/json.hpp
+CMakeLists.txt
+cmakepatch.txt
+CODEOWNERS
+install-mac.sh
+install-ubuntu.sh
+README_UDACITY.md
