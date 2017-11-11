@@ -10,7 +10,7 @@
 
 The video is uploaded on Youtube. [link](https://www.youtube.com/watch?v=kO8BKBIiQGM&list=PLNDTbGbATLcED0iX8K-zY3vrNbwhxV8gC&index=4)
 
-## Discription
+## Model Description
 
 I used two PID controllers. 
 
@@ -30,7 +30,7 @@ I used two PID controllers.
         |-------------- [set desired velocity] <------------|
 ```
 
-### PID controller
+## PID controller
 
 * ``Proportional`` part is the main control part. But only with P controller the car will oscillate and can also be not stable (oscillate stronger).
 
@@ -38,9 +38,17 @@ I used two PID controllers.
 
 * ``Integral`` part is used against bias. For example, when there is strong cross wind, only the PD controller cannot let the car drive just right on the center. But the I controller can be used to against such bias.
 
+### Implementation of the controllers
+
+* The controller would be implemented using the equation from [Wikipedia](https://en.wikipedia.org/wiki/PID_controller). 
+
+* The time interval `dt` was incoperated into `k`, due to that `dt` is almost constant.
+
+* The calculations of the integral and differential part was using simple numerical methods.
+
 ### Choose appropriate Parameters
 
-I chose ``k_p = 0.1``, ``k_i = 0.0001`` and ``k_d = 6`` for the PID controller for the steering (The time interval `dt` can be incoperated into `k`, due to that `dt` is almost constant.). 
+I chose ``k_p = 0.1``, ``k_i = 0.0001`` and ``k_d = 6`` for the PID controller for the steering (The time interval `dt` was incoperated into `k`, due to that `dt` is almost constant.). 
 
 * First I chose a propriate ``k_p`` suitable for the car velocity. (the throttle is controlled with another PID controller)
 
@@ -53,3 +61,5 @@ I chose ``k_p = 0.1``, ``k_i = 0.0001`` and ``k_d = 6`` for the PID controller f
 ## References:
 
 1. Udacity Self-Driving Car Engineer Nanodegree
+
+2. [PID Controller (Wikipedia)](https://en.wikipedia.org/wiki/PID_controller)
